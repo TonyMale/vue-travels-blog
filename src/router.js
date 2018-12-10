@@ -1,6 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Home from './components/Home.vue'
+import Travels from './components/Travels/Travels'
+import Travel from './components/Travels/Travel'
+import NewTravel from './components/Travels/NewTravel'
+import Signin from './components/User/Signin'
+import Signup from './components/User/Signup'
+import UserTravels from './components/Travels/UserTravels'
+
 
 Vue.use(Router)
 
@@ -14,12 +21,35 @@ export default new Router({
       component: Home
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      path: '/travels',
+      name: 'travels',
+      component: Travels
+    },
+    {
+      path: '/userTravels',
+      name: 'userTravels',
+      component: UserTravels
+    },
+    {
+      path: '/travels/:id',
+      name: 'travel',
+      props: true,
+      component: Travel
+    },
+    {
+      path: '/newTravel',
+      name: 'newTravel',
+      component: NewTravel
+    },
+    {
+      path: '/signin',
+      name: 'signin ',
+      component: Signin
+    },
+    {
+      path: '/signup',
+      name: 'signup ',
+      component: Signup
     }
   ]
 })
